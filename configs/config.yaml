@@ -1,0 +1,34 @@
+# Data parameters
+experiment_name: 'local_equal_net'
+dataset_name: mydata # [mnist, fashionmnist, cifar10, mvtec, retina]
+mydata_name: carpet
+last_checkpoint: 11
+
+
+# Training parameters
+num_epochs: 400 # mnist/fashionmnist:51, cifar10:201, mvtec:601
+batch_size: 64
+learning_rate: 1e-3
+mvtec_img_size: 128
+network: vgg # vgg, resnet18
+identity: teacher # teacher, student
+
+normal_class: 2 # mvtec:'capsule', mnist:3
+
+lamda: 0.5 # mvtec:0.5, Others:0.01
+
+
+pretrain: True # True:use pre-trained vgg as source network --- False:use random initialize
+use_bias: False # True:using bias term in neural network layer
+equal_network_size: False # True:using equal network size for cloner and source network --- False:smaller network for cloner
+direction_loss_only: False
+continue_train: False
+
+
+# Test parameters
+localization_test: True # True:For Localization Test --- False:For Detection
+localization_method: 'padim' # gradients , smooth_grad , gbp , padim
+module: 'val' # val, test
+thre: 0.25
+
+
